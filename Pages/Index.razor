@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<div style="width:650px;height:100px">
+    <SfBulletChart DataSource="BulletChartData"
+        ValueField="FieldValue" TargetField="TargetValue"
+        Minimum="0" Maximum="300" Interval="50"
+        Title="Revenue" Subtitle="(in dollars $)">   
+        <BulletChartTooltip Enable="true" TValue="ChartData"></BulletChartTooltip>
+        <BulletChartRangeCollection>
+            <BulletChartRange End="150" Color="Red"></BulletChartRange>
+            <BulletChartRange End="250"></BulletChartRange>
+            <BulletChartRange End="300" Color="Blue"></BulletChartRange>
+        </BulletChartRangeCollection>
+    </SfBulletChart>
+</div>
+
+@code{
+    public class ChartData
+    {
+        public double FieldValue { get; set; }
+        public double TargetValue { get; set; }
+    }
+
+    public List<ChartData> BulletChartData = new List<ChartData>
+    {
+        new ChartData{ FieldValue= 270, TargetValue = 250}
+    };
+}
